@@ -1,10 +1,14 @@
 from tkinter import *
 from tkinter import ttk
 from get_pincode import func1
+from gen_password import func2
 
 pincode = func1()
 if pincode == '':
     exit()
+
+def menu1():
+    func2(pincode)
 
 #Настройки экрана
 screen = Tk()  
@@ -25,7 +29,7 @@ logoimg = canvas.create_image(0,0, anchor = NW, image = logo)
 #Размещение кнопок
 ttk.Style().configure("TButton",  font="helvetica 13", foreground="#144E8F", padding=8, background="#144E8F") 
 
-btn1 = ttk.Button(screen, text="Сгенерировать пароль")
+btn1 = ttk.Button(screen, text="Сгенерировать пароль", command=menu1)
 btn1.place(x=48, y=190)
 
 btn2 = ttk.Button(screen, text="Посмотреть пароли")
