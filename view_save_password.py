@@ -1,6 +1,7 @@
 import os
 from tkinter import *
 from tkinter import ttk
+from cripted_data import decripted
 
 def func3(pincode):
     screen = Tk()  
