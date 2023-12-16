@@ -2,6 +2,7 @@ from tkinter import *
 from tkinter import ttk
 from get_pincode import func1
 from gen_password import func2
+from view_save_password import func3
 
 pincode = func1()
 if pincode == '':
@@ -9,6 +10,9 @@ if pincode == '':
 
 def menu1():
     func2(pincode)
+
+def menu2():
+    func3(pincode)
 
 #Настройки экрана
 screen = Tk()  
@@ -32,7 +36,7 @@ ttk.Style().configure("TButton",  font="helvetica 13", foreground="#144E8F", pad
 btn1 = ttk.Button(screen, text="Сгенерировать пароль", command=menu1)
 btn1.place(x=48, y=190)
 
-btn2 = ttk.Button(screen, text="Посмотреть пароли")
+btn2 = ttk.Button(screen, text="Посмотреть пароли", command=menu2)
 btn2.place(x=60, y=250)
 
 btn3 = ttk.Button(screen, text="Удалить все данные")
