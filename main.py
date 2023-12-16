@@ -18,6 +18,9 @@ def menu2():
 def menu3():
     func4()
 
+def menu4():
+    exit()
+    
 #Настройки экрана
 screen = Tk()  
 screen.title("КОРПUS 1.0")  
@@ -46,7 +49,7 @@ btn2.place(x=60, y=250)
 btn3 = ttk.Button(screen, text="Удалить все данные", command=menu3)
 btn3.place(x=55, y=310)
 
-btn4 = ttk.Button(screen, text="Закрыть приложение")
+btn4 = ttk.Button(screen, text="Закрыть приложение", command=menu4)
 btn4.place(x=55, y=370)
 
 
