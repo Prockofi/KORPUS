@@ -1,9 +1,11 @@
 from random import *
 from tkinter import *
 from tkinter import ttk
+from create_password import create
 
-def func2(pincode):
-    global screen, text, txtLen, bool1, bool2, bool3, bool4, bool5, bool6
+def func2(pin):
+    global screen, text, txtLen, bool1, bool2, bool3, bool4, bool5, bool6, pincode
+    pincode = pin
     bool1 = IntVar()
     bool2 = IntVar()    
     bool3 = IntVar()
@@ -48,14 +50,14 @@ def func2(pincode):
     text.pack()
     text.place(x=200, y=10)
 
+    btnCreate = ttk.Button(screen, text="Создать запись", command=menu2)
+    btnCreate.place(x=490, y=355)
+
     btnCopy = ttk.Button(screen, text="Скопировать")
     btnCopy.place(x=600, y=355)
 
-    btnCreate = ttk.Button(screen, text="Создать запись")
-    btnCreate.place(x=490, y=355)
-
 def menu1():
-    global screen, text, txtLen, bool1, bool2, bool3, bool4, bool5, bool6
+    global screen, text, txtLen, bool1, bool2, bool3, bool4, bool5, bool6, password
     try:
         lenght = int(txtLen.get())
         if lenght > 300:
@@ -80,6 +82,10 @@ def menu1():
         password += alfabet[randint(0, len(alfabet)-1)]
     text.delete('0.0', END)
     text.insert('0.0', f'{password}')
+
+def menu2():
+    global password, pincode
+    create(password, pincode)
 
 def in1():
     global bool1
