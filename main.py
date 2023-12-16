@@ -52,6 +52,4 @@ btn3.place(x=55, y=310)
 btn4 = ttk.Button(screen, text="Закрыть приложение", command=menu4)
 btn4.place(x=55, y=370)
 
-
-
 screen.mainloop()

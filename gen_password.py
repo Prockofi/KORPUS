@@ -53,7 +53,7 @@ def func2(pin):
     btnCreate = ttk.Button(screen, text="Создать запись", command=menu2)
     btnCreate.place(x=490, y=355)
 
-    btnCopy = ttk.Button(screen, text="Скопировать")
+    btnCopy = ttk.Button(screen, text="Скопировать", command=copy)
     btnCopy.place(x=600, y=355)
 
 def menu1():
@@ -78,8 +78,11 @@ def menu1():
     if bool6.get() == 1:
         alfabet += '0123456789'
     password = ''
-    for i in range(lenght):
-        password += alfabet[randint(0, len(alfabet)-1)]
+    try:
+        for i in range(lenght):
+            password += alfabet[randint(0, len(alfabet)-1)]
+    except:
+        password = 'Выберите не менее одного пункта'
     text.delete('0.0', END)
     text.insert('0.0', f'{password}')
 
@@ -128,3 +131,7 @@ def in6():
         bool6.set(1)
     else:
         bool6.set(0)
+
+def copy():
+    text.clipboard_clear()
+    text.clipboard_append(text.get(1.0, END))
